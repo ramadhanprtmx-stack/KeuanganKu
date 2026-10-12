@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#079669">
+  <title>Masuk - KeuanganKu</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="auth.js" defer></script>
+</head>
+<body class="auth-body">
+  <main class="auth-layout">
+    <section class="auth-showcase">
+      <a class="brand" href="index.html"><span class="brand-mark">K</span> KeuanganKu</a>
+      <div class="showcase-copy">
+        <span class="eyebrow"><span class="eyebrow-dot"></span> KEUANGAN LEBIH TERATUR</span>
+        <h1>Kenali alur uangmu.<br><span>Kendalikan masa depanmu.</span></h1>
+        <p>Catat pemasukan, pantau pengeluaran, dan atur anggaran dalam satu tempat yang sederhana.</p>
+        <div class="showcase-stats">
+          <div><strong>01</strong><span>Catat transaksi</span></div>
+          <div><strong>02</strong><span>Atur anggaran</span></div>
+          <div><strong>03</strong><span>Pantau keuangan</span></div>
+        </div>
+      </div>
+      <div class="showcase-footer">Kelola uang dengan lebih sadar, setiap hari.</div>
+      <div class="decor decor-one"></div><div class="decor decor-two"></div>
+    </section>
+
+    <section class="auth-side">
+      <div class="auth-card">
+        <div class="mobile-brand"><span class="brand-mark">K</span> KeuanganKu</div>
+        <div class="auth-heading">
+          <span class="auth-icon">↗</span>
+          <h2 id="authTitle">Selamat datang kembali</h2>
+          <p id="authSubtitle">Masuk untuk melanjutkan ke dashboard keuanganmu.</p>
+        </div>
+
+        <div class="auth-tabs" role="tablist" aria-label="Jenis akun">
+          <button type="button" class="auth-tab active" id="loginTab">Masuk</button>
+          <button type="button" class="auth-tab" id="registerTab">Buat akun</button>
+        </div>
+
+        <form id="authForm">
+          <div class="field-group hidden" id="nameGroup">
+            <label for="fullName">Nama lengkap</label>
+            <input id="fullName" type="text" maxlength="60" autocomplete="name" placeholder="Nama kamu">
+          </div>
+          <div class="field-group">
+            <label for="email">Email</label>
+            <input id="email" type="email" maxlength="120" autocomplete="email" placeholder="nama@email.com" required>
+          </div>
+          <div class="field-group">
+            <div class="label-line"><label for="password">Password</label><span class="small-note">Minimal 8 karakter</span></div>
+            <div class="password-wrap">
+              <input id="password" type="password" minlength="8" maxlength="128" autocomplete="current-password" placeholder="Masukkan password" required>
+              <button class="password-toggle" type="button" id="togglePassword" aria-label="Tampilkan password">Lihat</button>
+            </div>
+          </div>
+          <div class="field-group hidden" id="confirmGroup">
+            <label for="confirmPassword">Ulangi password</label>
+            <div class="password-wrap">
+              <input id="confirmPassword" type="password" minlength="8" maxlength="128" autocomplete="new-password" placeholder="Ulangi password">
+              <button class="password-toggle" type="button" id="toggleConfirm" aria-label="Tampilkan ulangi password">Lihat</button>
+            </div>
+          </div>
+          <p id="authMessage" class="auth-message" aria-live="polite"></p>
+          <button class="auth-submit" type="submit" id="submitButton"><span>Masuk ke akun</span><span aria-hidden="true">→</span></button>
+        </form>
+
+        <p class="auth-switch" id="switchText">Belum punya akun? <button type="button" id="switchMode">Buat akun</button></p>
+        <div class="privacy-note"><span>⌑</span><p><strong>Catatan privasi</strong><br>Versi demo menyimpan akun dan data di browser ini. Ini belum cocok untuk melindungi data keuangan sungguhan.</p></div>
+      </div>
+      <p class="copyright">© 2026 KeuanganKu · Kelola uang dengan bijak</p>
+    </section>
+  </main>
+</body>
+</html>

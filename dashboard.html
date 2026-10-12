@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KeuanganKu - Catatan Keuangan</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="dashboard.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <div><h1>KeuanganKu</h1><p>Catat uang masuk dan keluar dengan mudah.</p></div>
+      <div class="account-menu"><span class="avatar" id="userAvatar">K</span><span id="welcomeName">Pengguna</span><button type="button" class="secondary logout-button" id="logoutButton">Keluar</button></div>
+    </div>
+  </header>
+
+  <main class="container dashboard-main">
+    <section class="summary">
+      <div class="card"><p>Total Pemasukan</p><h2 id="totalIncome">Rp0</h2></div>
+      <div class="card"><p>Total Pengeluaran</p><h2 id="totalExpense">Rp0</h2></div>
+      <div class="card"><p>Sisa Uang</p><h2 id="balance">Rp0</h2></div>
+    </section>
+
+    <section class="panel">
+      <h2 id="formTitle">Tambah Transaksi</h2>
+      <form id="transactionForm">
+        <label for="type">Jenis transaksi</label>
+        <select id="type" required><option value="pemasukan">Pemasukan</option><option value="pengeluaran">Pengeluaran</option></select>
+        <label for="description">Keterangan</label>
+        <input id="description" type="text" maxlength="100" placeholder="Contoh: Uang saku" required>
+        <label for="category">Kategori</label>
+        <select id="category" required>
+          <option value="Uang Saku">Uang Saku</option><option value="Gaji">Gaji</option><option value="Makanan">Makanan</option><option value="Transportasi">Transportasi</option><option value="Pendidikan">Pendidikan</option><option value="Belanja">Belanja</option><option value="Hiburan">Hiburan</option><option value="Tagihan">Tagihan</option><option value="Kesehatan">Kesehatan</option><option value="Lainnya">Lainnya</option>
+        </select>
+        <label for="amount">Nominal (Rp)</label>
+        <input id="amount" type="number" min="1" step="1" placeholder="Contoh: 25000" required>
+        <label for="date">Tanggal transaksi</label>
+        <input id="date" type="date" required>
+        <div class="form-buttons"><button type="submit" id="saveButton">Simpan Transaksi</button><button type="button" id="cancelEdit" class="secondary hidden">Batal Edit</button></div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>Anggaran Bulanan</h2><p>Atur batas maksimal pengeluaran untuk bulan ini.</p>
+      <form id="budgetForm" class="budget-form"><label for="budget">Batas pengeluaran (Rp)</label><input id="budget" type="number" min="1" step="1" placeholder="Contoh: 500000" required><button type="submit">Simpan Anggaran</button></form>
+      <p id="budgetInfo">Belum ada anggaran bulan ini.</p><div class="progress-track"><div id="budgetProgress" class="progress-bar"></div></div><p id="budgetWarning" class="warning" aria-live="polite"></p>
+    </section>
+
+    <section class="reports">
+      <div class="panel"><h2>Laporan Hari Ini</h2><p>Pemasukan: <strong id="dailyIncome">Rp0</strong></p><p>Pengeluaran: <strong id="dailyExpense">Rp0</strong></p></div>
+      <div class="panel"><h2>Laporan Bulan Ini</h2><p>Pemasukan: <strong id="monthlyIncome">Rp0</strong></p><p>Pengeluaran: <strong id="monthlyExpense">Rp0</strong></p><p>Selisih: <strong id="monthlyBalance">Rp0</strong></p></div>
+    </section>
+
+    <section class="panel">
+      <h2>Riwayat Transaksi</h2><p class="muted">Semua transaksi yang sudah kamu catat.</p>
+      <div class="table-wrap"><table><thead><tr><th>Tanggal</th><th>Jenis</th><th>Keterangan</th><th>Kategori</th><th>Nominal</th><th>Aksi</th></tr></thead><tbody id="transactionList"></tbody></table></div>
+      <p id="emptyMessage">Belum ada transaksi. Silakan tambahkan.</p>
+    </section>
+    <p class="footer-note">Data demo tersimpan di browser ini. Jangan hapus data situs jika ingin mempertahankan catatan.</p>
+  </main>
+</body>
+</html>
